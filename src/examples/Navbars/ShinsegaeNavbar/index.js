@@ -1,7 +1,7 @@
 import { color } from "@mui/system";
 import React from "react";
 import Icon from "@mui/material/Icon";
-import logo from "/Users/chang/develop/react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png";
+import logo from "C:/shinEdu/project2022/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png";
 
 function index(props) {
     const box = {

@@ -37,7 +37,7 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Changmin from "layouts/changmin";
+import Hee from "layouts/hee";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -116,11 +116,11 @@ const routes = [
     },
     {
         type: "collapse",
-        name: "chagnmin",
-        key: "changmin",
+        name: "hee",
+        key: "hee",
         icon: <Icon fontSize="small">dashboard</Icon>,
-        route: "/changmin",
-        component: <Changmin />,
+        route: "/hee",
+        component: <Hee />,
     },
 ];
 

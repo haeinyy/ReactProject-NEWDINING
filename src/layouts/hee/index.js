@@ -64,7 +64,7 @@ function Dashboard() {
         // </DashboardLayout>
         <div>
             <ShinsegaeNavbar />
-            <p>changmin page</p>
+            <p>test</p>
         </div>
     );
 }
