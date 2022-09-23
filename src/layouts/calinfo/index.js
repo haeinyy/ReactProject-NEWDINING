@@ -103,6 +103,7 @@ function Tables() {
                   fill: '#33333',
                 }}
                 labelPosition={80}
+                viewBoxSize={[-200, -200]}
               />
               ;
             </Card>
