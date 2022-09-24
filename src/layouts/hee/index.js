@@ -35,36 +35,36 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+import BillingInformation from "layouts/hee/components/BillingInformation";
 
 function Dashboard() {
     const { sales, tasks } = reportsLineChartData;
-
+    const styleObj = {
+        margin: "20px"
+	}
+    
     return (
         // <DashboardLayout>
         //     <ShinsegaeNavbar />
-        //     <p>창민의 페이지1111</p>
-        //     <MDBox py={3}>
-        //         <MDBox mt={4.5}>
-        //             <Grid container spacing={3}>
-        //                 <Grid item xs={12} md={6} lg={4}>
-        //                     <MDBox mb={3}>
-        //                         <ReportsBarChart
-        //                             color="info"
-        //                             title="website views"
-        //                             description="Last Campaign Performance"
-        //                             date="campaign sent 2 days ago"
-        //                             chart={reportsBarChartData}
-        //                         />
-        //                     </MDBox>
-        //                 </Grid>
-        //             </Grid>
-        //         </MDBox>
-        //     </MDBox>
+        //     <p>test</p>
+        //     <MDBox mb={3}>
+        //   <Grid container spacing={3}>
+        //     <Grid item xs={12} md={7}>
+        //       <BillingInformation />
+        //     </Grid>
+        //   </Grid>
+        // </MDBox>
         //     <Footer />
         // </DashboardLayout>
         <div>
             <ShinsegaeNavbar />
-            <p>test</p>
+            <MDBox mb={3} style={styleObj}>
+           <Grid container spacing={3}>
+             <Grid item xs={12} md={7}>
+               <BillingInformation />
+             </Grid>
+           </Grid>
+         </MDBox>
         </div>
     );
 }
