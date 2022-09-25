@@ -28,7 +28,7 @@ import MDButton from 'components/MDButton';
 
 // Material Dashboard 2 React example components
 import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
-// import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 import ShinsegaeNavbar from 'examples/Navbars/ShinsegaeNavbar';
 import Footer from 'examples/Footer';
 import DataTable from 'examples/Tables/DataTable';
@@ -41,8 +41,7 @@ function Tables() {
 
   return (
     <DashboardLayout>
-      {/* <DashboardNavbar />
-       */}
+      <DashboardNavbar />
       <ShinsegaeNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={1}>
@@ -69,7 +68,7 @@ function Tables() {
                 py={2}
                 px={2}
                 variant="gradient"
-                bgColor="secondary"
+                bgColor="info"
                 coloredShadow="light"
               >
                 <MDTypography variant="h4" color="white" align="center">
@@ -96,7 +95,7 @@ function Tables() {
                 py={2}
                 px={2}
                 variant="gradient"
-                bgColor="secondary"
+                bgColor="info"
                 coloredShadow="light"
               >
                 <MDTypography variant="h4" color="white" align="center">
@@ -105,10 +104,10 @@ function Tables() {
               </MDBox>
               <PieChart
                 data={[
-                  { title: 'tan', value: 100, color: '#E5B2A5' },
-                  { title: 'dan', value: 250, color: '#ECDAC4' },
+                  { title: 'tan', value: 100, color: '#367E18' },
+                  { title: 'dan', value: 250, color: '#FFE9A0' },
                   // { title: 'gi', value: 400, color: '#A5D1D9' },
-                  { title: 'gi', value: 400, color: '#EFF0F2' },
+                  { title: 'gi', value: 400, color: '#CC3636' },
                 ]}
                 // label={({ dataEntry }) => dataEntry.value + '%'}
                 label={({ dataEntry }) =>
