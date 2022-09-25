@@ -23,6 +23,8 @@ import styled from "styled-components";
 import Diet from "./components/Diet";
 import DietEdit from "./components/DietEdit";
 import { Link } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const top_title = {
     color: "white",
@@ -39,28 +41,30 @@ function EditDiet({ history, location, match }) {
     console.log(location);
     console.log(match);
     return (
-        <div style={white_background}>
-            <ShinsegaeNavbar />
-            <div style={top_title}>식단표 만들기</div>
-            <DateSelector />
-            <SearchBar />
-            {/* <SearchResult> */}
-            {/* <Diet /> */}
-            {/* <DietEdit /> */}
-            {/* </SearchResult> */}
-            <Link to="/dashbaord">Expenses</Link>
-            <BlankBlock>blank</BlankBlock>
-            <div>해인님 작업한 차트 들어갈 예정</div>
-            <MDBox mb={3}>
-                <ReportsBarChart
-                    color="info"
-                    title="website views"
-                    description="Last Campaign Performance"
-                    date="campaign sent 2 days ago"
-                    chart={reportsBarChartData}
-                />
-            </MDBox>
-        </div>
+        <Provider store={store}>
+            <div style={white_background}>
+                <ShinsegaeNavbar />
+                <div style={top_title}>식단표 만들기</div>
+                <DateSelector />
+                <SearchBar />
+                {/* <SearchResult> */}
+                {/* <Diet /> */}
+                {/* <DietEdit /> */}
+                {/* </SearchResult> */}
+                <Link to="/dashbaord">Expenses</Link>
+                <BlankBlock>blank</BlankBlock>
+                <div>해인님 작업한 차트 들어갈 예정</div>
+                <MDBox mb={3}>
+                    <ReportsBarChart
+                        color="info"
+                        title="website views"
+                        description="Last Campaign Performance"
+                        date="campaign sent 2 days ago"
+                        chart={reportsBarChartData}
+                    />
+                </MDBox>
+            </div>
+        </Provider>
     );
 }
 const BlankBlock = styled.div`

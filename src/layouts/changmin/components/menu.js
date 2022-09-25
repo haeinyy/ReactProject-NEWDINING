@@ -13,18 +13,14 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
-// @mui material components
-import Icon from "@mui/material/Icon";
-
-import MDButton from "components/MDButton";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
+import { useDispatch } from "react-redux";
+import { add } from "../redux/menu";
 
 function Menu({ date, price }) {
+    const dispatch = useDispatch();
     return (
         <MDBox
             component="li"
@@ -34,24 +30,34 @@ function Menu({ date, price }) {
             py={1}
             pr={1}
         >
-            <MDBox lineHeight={1.125}>
-                <MDTypography
-                    display="block"
-                    variant="button"
-                    fontWeight="medium"
-                >
-                    {date}
-                </MDTypography>
-            </MDBox>
-            <MDBox display="flex" alignItems="center">
-                <MDTypography
-                    variant="button"
-                    fontWeight="regular"
-                    color="text"
-                >
-                    {price}
-                </MDTypography>
-            </MDBox>
+            <div
+                onClick={() => {
+                    // dispatch(add({ date: date }));
+                    dispatch(add({ name: date }));
+                }}
+                // onClick={() => {
+                // alert(date, price);
+                // }}
+            >
+                <MDBox lineHeight={1.125}>
+                    <MDTypography
+                        display="block"
+                        variant="button"
+                        fontWeight="medium"
+                    >
+                        {date}
+                    </MDTypography>
+                </MDBox>
+                <MDBox display="flex" alignItems="center">
+                    <MDTypography
+                        variant="button"
+                        fontWeight="regular"
+                        color="text"
+                    >
+                        {price}
+                    </MDTypography>
+                </MDBox>
+            </div>
         </MDBox>
     );
 }

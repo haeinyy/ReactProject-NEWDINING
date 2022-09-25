@@ -22,12 +22,14 @@ import MDBox from "components/MDBox";
 // Billing page components
 import Menu from "./menu";
 import MenuSelect from "./menuSelect";
+import { useSelector } from "react-redux";
 
 const card_style = {
     width: "50vw",
 };
 function DietEdit({ family }) {
-    console.log(family);
+    const menus = useSelector((state) => state.menu.value);
+    // console.log(family);
     return (
         <Card style={card_style}>
             <MDBox
@@ -45,16 +47,10 @@ function DietEdit({ family }) {
                     p={0}
                     m={0}
                 >
-                    {/* <MenuSelect date="된장찌개" price="200" /> */}
-                    {/* <MenuSelect date="된장찌개" price="200" /> */}
-                    {/* <MenuSelect date="된장찌개" price="200" /> */}
-                    {/* <MenuSelect date="된장찌개" price="200" /> */}
-                    {/* <MenuSelect date="된장찌개" price="200" /> */}
-                    {/* <h1>{family.name}</h1> */}
                     <ul>
-                        {family.members.map((el, i) => (
+                        {menus.map((el, i) => (
                             // <li key={i}>{el.name}</li>
-                            <MenuSelect key={i} date={el.name} price="200" />
+                            <MenuSelect key={i} name={el.name} price="200" />
                         ))}
                     </ul>
                 </MDBox>

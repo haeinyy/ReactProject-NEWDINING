@@ -23,7 +23,7 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
-function MenuSelect({ date, id, price, noGutter }) {
+function MenuSelect({ name, id, price, noGutter }) {
     return (
         <MDBox
             component="li"
@@ -40,7 +40,7 @@ function MenuSelect({ date, id, price, noGutter }) {
                     variant="button"
                     fontWeight="medium"
                 >
-                    {date}
+                    {name}
                 </MDTypography>
             </MDBox>
             <MDBox display="flex" alignItems="center">
@@ -72,9 +72,9 @@ MenuSelect.defaultProps = {
 
 // Typechecking props for the Invoice
 MenuSelect.propTypes = {
-    date: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     id: PropTypes.string,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.string,
     noGutter: PropTypes.bool,
 };
 

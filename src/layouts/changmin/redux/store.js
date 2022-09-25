@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import menuSlice from "./menu";
 
 export const store = configureStore({
-    reducer: counterSlice,
-    middleware: [...middlewares],
+    reducer: {
+        menu: menuSlice,
+    },
 });

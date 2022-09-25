@@ -21,11 +21,16 @@ import MDBox from "components/MDBox";
 
 // Billing page components
 import Menu from "./menu";
+import { useDispatch } from "react-redux";
+import { add } from "../redux/menu";
 
 const card_style = {
     width: "50vw",
 };
-function Diet() {
+function Diet({ family }) {
+    const dispatch = useDispatch();
+
+    // console.log(family);
     return (
         <Card style={card_style}>
             <MDBox
@@ -43,10 +48,21 @@ function Diet() {
                     p={0}
                     m={0}
                 >
-                    <Menu date="김치찌개" price="250" />
-                    <Menu date="김치찌개" price="250" />
-                    <Menu date="김치찌개" price="250" />
-                    <Menu date="김치찌개" price="250" />
+                    {family === undefined ? (
+                        <div>메뉴를 검색 해주세요</div>
+                    ) : null}
+                    {family !== undefined ? (
+                        <ul>
+                            {family.members.map((el, i) => (
+                                <Menu
+                                    onClick={() => alert("test")}
+                                    key={i}
+                                    date={el.name}
+                                    price="200"
+                                />
+                            ))}
+                        </ul>
+                    ) : null}
                 </MDBox>
             </MDBox>
         </Card>

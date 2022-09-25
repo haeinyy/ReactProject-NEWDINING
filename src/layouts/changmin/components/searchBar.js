@@ -5,9 +5,13 @@ import useFetch from "../hooks/useFetch";
 import House from "./House";
 import DietEdit from "./DietEdit";
 import Diet from "./Diet";
+import { useSelector } from "react-redux";
 
 function Index(props) {
     const { data, setData } = useFetch();
+    const menus = useSelector((state) => state.menu.value);
+    // console.log("redux menus:", menus);
+
     return (
         <>
             <PlaceholderStack>
@@ -27,12 +31,14 @@ function Index(props) {
                 ></FaSearch>
             </PlaceholderStack>
             <SearchResult>
-                <Diet />
-                {data.results.length > 0 ? (
+                {/* {data.results.length > 0 ? (
                     // <House family={data.results[0]} />
-                    <DietEdit family={data.results[0]} />
-                ) : null}
+                    <Diet family={data.results[0]} />
+                ) : null} */}
+                <Diet family={data.results[0]} />
+                <DietEdit />
             </SearchResult>
+            {/* <div>{menus.name}</div> */}
         </>
     );
 }
