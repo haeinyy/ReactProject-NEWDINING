@@ -11,7 +11,7 @@ function Index(props) {
     const { data, setData } = useFetch();
     const menus = useSelector((state) => state.menu.value);
     console.log("redux menus:", menus);
-
+    console.log(data.results);
     return (
         <>
             <PlaceholderStack>
@@ -35,7 +35,7 @@ function Index(props) {
                     // <House family={data.results[0]} />
                     <Diet family={data.results[0]} />
                 ) : null} */}
-                <Diet family={data.results[0]} />
+                <Diet family={data.results} />
                 <DietEdit />
             </SearchResult>
         </>

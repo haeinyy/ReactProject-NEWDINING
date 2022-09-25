@@ -31,6 +31,7 @@
     "chart.js": "3.4.1",
     "chroma-js": "2.4.2",
     "entypo": "^2.2.1",
+    "http-proxy-middleware": "^2.0.6",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-chartjs-2": "3.0.4",
@@ -83,5 +84,6 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "prettier": "2.5.1"
-  }
+  },
+  "proxy": "http://35.216.64.71"
 }

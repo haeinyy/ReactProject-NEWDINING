@@ -30,7 +30,7 @@ const card_style = {
 function Diet({ family }) {
     const dispatch = useDispatch();
 
-    // console.log(family);
+    console.log(family);
     return (
         <Card style={card_style}>
             <MDBox
@@ -48,12 +48,12 @@ function Diet({ family }) {
                     p={0}
                     m={0}
                 >
-                    {family === undefined ? (
+                    {family.length === 0 ? (
                         <div>메뉴를 검색 해주세요</div>
                     ) : null}
                     {family !== undefined ? (
                         <ul>
-                            {family.members.map((el, i) => (
+                            {family.map((el, i) => (
                                 <Menu
                                     onClick={() => alert("test")}
                                     key={i}
