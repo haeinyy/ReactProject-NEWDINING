@@ -28,7 +28,8 @@ import MDButton from 'components/MDButton';
 
 // Material Dashboard 2 React example components
 import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
-import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+// import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+import ShinsegaeNavbar from 'examples/Navbars/ShinsegaeNavbar';
 import Footer from 'examples/Footer';
 import DataTable from 'examples/Tables/DataTable';
 
@@ -40,7 +41,9 @@ function Tables() {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
+      {/* <DashboardNavbar />
+       */}
+      <ShinsegaeNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
@@ -51,7 +54,7 @@ function Tables() {
                 py={2}
                 px={2}
                 variant="gradient"
-                bgColor="info"
+                bgColor="error"
                 borderRadius="lg"
                 coloredShadow="info"
               >
@@ -66,8 +69,8 @@ function Tables() {
                 py={2}
                 px={2}
                 variant="gradient"
-                bgColor="success"
-                coloredShadow="info"
+                bgColor="secondary"
+                coloredShadow="light"
               >
                 <MDTypography variant="h4" color="white" align="center">
                   500kcal
@@ -87,23 +90,43 @@ function Tables() {
           </Grid>
           <Grid item xs={12}>
             <Card>
+              <MDBox
+                // mx={2}
+                mt={3}
+                py={2}
+                px={2}
+                variant="gradient"
+                bgColor="secondary"
+                coloredShadow="light"
+              >
+                <MDTypography variant="h4" color="white" align="center">
+                  Pie Chart
+                </MDTypography>
+              </MDBox>
               <PieChart
                 data={[
-                  { title: 'tan', value: 60, color: '#E38627' },
-                  { title: 'dan', value: 20, color: '#C13C37' },
-                  { title: 'gi', value: 20, color: '#6A2135' },
+                  { title: 'tan', value: 100, color: '#E5B2A5' },
+                  { title: 'dan', value: 250, color: '#ECDAC4' },
+                  // { title: 'gi', value: 400, color: '#A5D1D9' },
+                  { title: 'gi', value: 400, color: '#EFF0F2' },
                 ]}
-                label={({ dataEntry }) => dataEntry.value + '%'}
+                // label={({ dataEntry }) => dataEntry.value + '%'}
+                label={({ dataEntry }) =>
+                  `${Math.round(dataEntry.percentage)} %`
+                }
+                // totalValue={100}
                 lineWidth={40}
                 lengthAngle={360}
                 rounded
                 animate
                 labelStyle={{
-                  fontSize: '9px',
+                  fontSize: '7px',
                   fill: '#33333',
                 }}
                 labelPosition={80}
-                viewBoxSize={[-200, -200]}
+                // viewBoxSize={[150, 150]}
+                radius={40}
+                center={[50, 52]}
               />
               ;
             </Card>
