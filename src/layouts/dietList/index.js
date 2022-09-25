@@ -12,8 +12,9 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 
 import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
-import Korean from "layouts/dietList/components/Korean";
-import Asian from "layouts/dietList/components/Asian";
+//import Korean from "layouts/dietList/components/Korean";
+//import Asian from "layouts/dietList/components/Asian";
+import DList from "layouts/dietList/components/dList";
 
 function DietList() {
   const [value, onChange] = useState(new Date());
@@ -38,9 +39,9 @@ function DietList() {
             <MDBox mb={3} style={styleObj}>
            <Grid container spacing={3}>
              <Grid item xs={12} md={7}>
-               <Korean />
+               <DList ddate={ moment(value).format("YYYYMMDD") }/>
                <br></br>
-               <Asian />
+               
                <br></br>
              </Grid>
            </Grid>
