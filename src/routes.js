@@ -38,6 +38,7 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Hee from "layouts/hee";
+import DietList from "layouts/dietList";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -122,6 +123,14 @@ const routes = [
         route: "/hee",
         component: <Hee />,
     },
+    {
+        type: "collapse",
+        name: "dietList",
+        key: "dietList",
+        icon: <Icon fontSize="small">dashboard</Icon>,
+        route: "/dietList",
+        component: <DietList />,
+    }
 ];
 
 export default routes;
