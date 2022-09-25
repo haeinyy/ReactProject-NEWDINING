@@ -26,7 +26,8 @@ import MenuSelect from "./menuSelect";
 const card_style = {
     width: "50vw",
 };
-function DietEdit() {
+function DietEdit({ family }) {
+    console.log(family);
     return (
         <Card style={card_style}>
             <MDBox
@@ -44,11 +45,18 @@ function DietEdit() {
                     p={0}
                     m={0}
                 >
-                    <MenuSelect date="된장찌개" price="200" />
-                    <MenuSelect date="된장찌개" price="200" />
-                    <MenuSelect date="된장찌개" price="200" />
-                    <MenuSelect date="된장찌개" price="200" />
-                    <MenuSelect date="된장찌개" price="200" />
+                    {/* <MenuSelect date="된장찌개" price="200" /> */}
+                    {/* <MenuSelect date="된장찌개" price="200" /> */}
+                    {/* <MenuSelect date="된장찌개" price="200" /> */}
+                    {/* <MenuSelect date="된장찌개" price="200" /> */}
+                    {/* <MenuSelect date="된장찌개" price="200" /> */}
+                    {/* <h1>{family.name}</h1> */}
+                    <ul>
+                        {family.members.map((el, i) => (
+                            // <li key={i}>{el.name}</li>
+                            <MenuSelect key={i} date={el.name} price="200" />
+                        ))}
+                    </ul>
                 </MDBox>
             </MDBox>
         </Card>

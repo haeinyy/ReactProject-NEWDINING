@@ -73,7 +73,7 @@ MenuSelect.defaultProps = {
 // Typechecking props for the Invoice
 MenuSelect.propTypes = {
     date: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     price: PropTypes.string.isRequired,
     noGutter: PropTypes.bool,
 };

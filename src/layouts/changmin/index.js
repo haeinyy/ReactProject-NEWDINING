@@ -22,6 +22,7 @@ import SearchBar from "./components/searchBar";
 import styled from "styled-components";
 import Diet from "./components/Diet";
 import DietEdit from "./components/DietEdit";
+import { Link } from "react-router-dom";
 
 const top_title = {
     color: "white",
@@ -33,18 +34,23 @@ const white_background = {
     backgroundColor: "white",
 };
 
-function Dashboard() {
+function EditDiet({ history, location, match }) {
+    console.log(history);
+    console.log(location);
+    console.log(match);
     return (
         <div style={white_background}>
             <ShinsegaeNavbar />
             <div style={top_title}>식단표 만들기</div>
             <DateSelector />
             <SearchBar />
-            <SearchResult>
-                <Diet />
-                <DietEdit />
-            </SearchResult>
+            {/* <SearchResult> */}
+            {/* <Diet /> */}
+            {/* <DietEdit /> */}
+            {/* </SearchResult> */}
+            <Link to="/dashbaord">Expenses</Link>
             <BlankBlock>blank</BlankBlock>
+            <div>해인님 작업한 차트 들어갈 예정</div>
             <MDBox mb={3}>
                 <ReportsBarChart
                     color="info"
@@ -65,4 +71,4 @@ const BlankBlock = styled.div`
 const SearchResult = styled.div`
     display: flex;
 `;
-export default Dashboard;
+export default EditDiet;

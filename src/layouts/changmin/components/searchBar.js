@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import useFetch from "../hooks/useFetch";
 import House from "./House";
+import DietEdit from "./DietEdit";
+import Diet from "./Diet";
 
 function Index(props) {
     const { data, setData } = useFetch();
@@ -24,9 +26,13 @@ function Index(props) {
                     }}
                 ></FaSearch>
             </PlaceholderStack>
-            {data.results.length > 0 ? (
-                <House family={data.results[0]} />
-            ) : null}
+            <SearchResult>
+                <Diet />
+                {data.results.length > 0 ? (
+                    // <House family={data.results[0]} />
+                    <DietEdit family={data.results[0]} />
+                ) : null}
+            </SearchResult>
         </>
     );
 }
@@ -58,6 +64,9 @@ const PlaceholderStack = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+`;
+const SearchResult = styled.div`
+    display: flex;
 `;
 
 export default Index;
