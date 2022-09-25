@@ -13,60 +13,56 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// @mui material components
-import Grid from "@mui/material/Grid";
-
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
-
-// Material Dashboard 2 React example components
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
-import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
-import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-
-// Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
-import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
+import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
+import DateSelector from "./components/dateSelector";
+import SearchBar from "./components/searchBar";
+import styled from "styled-components";
+import Diet from "./components/Diet";
+import DietEdit from "./components/DietEdit";
 
-// Dashboard components
-import Projects from "layouts/dashboard/components/Projects";
-import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+const top_title = {
+    color: "white",
+    backgroundColor: "#D70C19",
+    display: "flex",
+    justifyContent: "center",
+};
+const white_background = {
+    backgroundColor: "white",
+};
 
 function Dashboard() {
-    const { sales, tasks } = reportsLineChartData;
-
     return (
-        // <DashboardLayout>
-        //     <ShinsegaeNavbar />
-        //     <p>창민의 페이지1111</p>
-        //     <MDBox py={3}>
-        //         <MDBox mt={4.5}>
-        //             <Grid container spacing={3}>
-        //                 <Grid item xs={12} md={6} lg={4}>
-        //                     <MDBox mb={3}>
-        //                         <ReportsBarChart
-        //                             color="info"
-        //                             title="website views"
-        //                             description="Last Campaign Performance"
-        //                             date="campaign sent 2 days ago"
-        //                             chart={reportsBarChartData}
-        //                         />
-        //                     </MDBox>
-        //                 </Grid>
-        //             </Grid>
-        //         </MDBox>
-        //     </MDBox>
-        //     <Footer />
-        // </DashboardLayout>
-        <div>
+        <div style={white_background}>
             <ShinsegaeNavbar />
-            <p>changmin page</p>
+            <div style={top_title}>식단표 만들기</div>
+            <DateSelector />
+            <SearchBar />
+            <SearchResult>
+                <Diet />
+                <DietEdit />
+            </SearchResult>
+            <BlankBlock>blank</BlankBlock>
+            <MDBox mb={3}>
+                <ReportsBarChart
+                    color="info"
+                    title="website views"
+                    description="Last Campaign Performance"
+                    date="campaign sent 2 days ago"
+                    chart={reportsBarChartData}
+                />
+            </MDBox>
         </div>
     );
 }
-
+const BlankBlock = styled.div`
+    background-color: white;
+    height: 200px;
+    color: white;
+`;
+const SearchResult = styled.div`
+    display: flex;
+`;
 export default Dashboard;

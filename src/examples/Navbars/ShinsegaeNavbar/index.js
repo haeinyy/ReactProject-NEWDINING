@@ -11,15 +11,22 @@ function index(props) {
         padding: "10px",
         display: "flex",
         justifyContent: "center",
+        alignItem: "center",
     };
     const logo_style = {
         height: "30px",
+    };
+    const navbar_title = {
+        fontSize: "20px",
+        // display: "flex",
+        // justifyContent: "center",
+        // alignItem: "center",
     };
     // const logo = require("react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png");
     // const logo = require("/Users/chang/develop/react/ReactProject-NEWDINING/src/assets/images/icons/flags/logo.png");
     return (
         <div style={box}>
-            <div>신세계 아이앤씨</div>
+            <div style={navbar_title}>신세계 아이앤씨</div>
             <img src={logo} alt="logo" style={logo_style}></img>
         </div>
     );
