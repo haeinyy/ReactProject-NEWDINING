@@ -26,10 +26,13 @@ function BillingInformation() {
   const styleObj3 = {
     display: "-webkit-inline-box"
   }
+  const styleObj4 = {
+    paddingLeft: "8px"
+  }
 
   return (
     <Card id="delete-account">
-      <MDBox pt={1} pb={2} px={2}>
+      <MDBox pt={1} pb={2} px={2} style={styleObj4}>
         <p>9/12</p>
         <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0} style={styleObj3}>
           <Bill

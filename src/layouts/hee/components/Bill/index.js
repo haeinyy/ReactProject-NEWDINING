@@ -31,7 +31,8 @@ function Bill({ name, company, email, vat, noGutter }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
   const styleObj2 = {
-    width: "fit-content"
+    width: "fit-content",
+    marginLeft: "5px"
   }
 
   return (
