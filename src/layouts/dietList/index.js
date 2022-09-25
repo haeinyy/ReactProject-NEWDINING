@@ -12,7 +12,7 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 
 import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
-import BillingInformation from "layouts/dietList/components/BillingInformation";
+import Korean from "layouts/dietList/components/Korean";
 import Asian from "layouts/dietList/components/Asian";
 
 function DietList() {
@@ -38,7 +38,7 @@ function DietList() {
             <MDBox mb={3} style={styleObj}>
            <Grid container spacing={3}>
              <Grid item xs={12} md={7}>
-               <BillingInformation />
+               <Korean />
                <br></br>
                <Asian />
                <br></br>

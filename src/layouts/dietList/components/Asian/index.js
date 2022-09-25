@@ -20,14 +20,14 @@ import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 
 // Billing page components
-import Bill from "layouts/dietList/components/Bill";
+import DietItem from "layouts/dietList/components/dietItem";
 
-function BillingInformation() {
+function Asian() {
   return (
     <Card id="delete-account">
       <MDBox pt={1} pb={2} px={2}>
         <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
-          <Bill
+          <DietItem
             name="ASIAN"
             company="viking burrito"
             email="oliver@burrito.com"
@@ -39,4 +39,4 @@ function BillingInformation() {
   );
 }
 
-export default BillingInformation;
+export default Asian;

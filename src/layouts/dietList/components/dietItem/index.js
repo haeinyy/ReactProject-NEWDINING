@@ -27,7 +27,7 @@ import MDButton from "components/MDButton";
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
 
-function Bill({ name, company, email, vat, noGutter }) {
+function DietItem({ name, company, email, vat, noGutter }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
 
@@ -97,12 +97,12 @@ function Bill({ name, company, email, vat, noGutter }) {
 }
 
 // Setting default values for the props of Bill
-Bill.defaultProps = {
+DietItem.defaultProps = {
   noGutter: false,
 };
 
 // Typechecking props for the Bill
-Bill.propTypes = {
+DietItem.propTypes = {
   name: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
@@ -110,4 +110,4 @@ Bill.propTypes = {
   noGutter: PropTypes.bool,
 };
 
-export default Bill;
+export default DietItem;
