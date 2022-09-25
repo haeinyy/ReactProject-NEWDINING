@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 function Index(props) {
     const { data, setData } = useFetch();
     const menus = useSelector((state) => state.menu.value);
-    // console.log("redux menus:", menus);
+    console.log("redux menus:", menus);
 
     return (
         <>
@@ -38,7 +38,6 @@ function Index(props) {
                 <Diet family={data.results[0]} />
                 <DietEdit />
             </SearchResult>
-            {/* <div>{menus.name}</div> */}
         </>
     );
 }

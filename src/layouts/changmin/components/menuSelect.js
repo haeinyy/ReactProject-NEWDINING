@@ -23,7 +23,10 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
+import { useDispatch } from "react-redux";
+import { remove } from "../redux/menu";
 function MenuSelect({ name, id, price, noGutter }) {
+    const dispatch = useDispatch();
     return (
         <MDBox
             component="li"
@@ -59,7 +62,14 @@ function MenuSelect({ name, id, price, noGutter }) {
                 ml={3}
                 sx={{ cursor: "pointer" }}
             >
-                <Icon fontSize="small">cancel</Icon>
+                <Icon
+                    fontSize="small"
+                    onClick={() => {
+                        dispatch(remove(name));
+                    }}
+                >
+                    cancel
+                </Icon>
             </MDBox>
         </MDBox>
     );

@@ -51,7 +51,7 @@ function EditDiet({ history, location, match }) {
                 {/* <Diet /> */}
                 {/* <DietEdit /> */}
                 {/* </SearchResult> */}
-                <Link to="/dashbaord">Expenses</Link>
+                {/* <Link to="/dashbaord">Expenses</Link> */}
                 <BlankBlock>blank</BlankBlock>
                 <div>해인님 작업한 차트 들어갈 예정</div>
                 <MDBox mb={3}>
