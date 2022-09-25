@@ -13,6 +13,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+// api 연동
+import React, { useState } from 'react';
+import axios from 'axios';
+
 import { PieChart } from 'react-minimal-pie-chart';
 
 // @mui material components
@@ -35,9 +39,16 @@ import DataTable from 'examples/Tables/DataTable';
 
 // Data
 import calorieTableData from 'layouts/calinfo/data/calorieTableData';
+import { date } from 'yup';
 
-function Tables() {
+async function Tables() {
   const { columns: pColumns, rows: pRows } = calorieTableData();
+  const [data, setData] = useState(null);
+  const date = '20220925';
+  const url = '/diets/diet?date=' + date;
+
+  const res = await axios.get(url);
+  console.log(res.data);
 
   return (
     <DashboardLayout>
