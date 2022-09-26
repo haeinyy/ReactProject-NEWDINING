@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import useFetch from "../hooks/useFetch";
-import House from "./House";
 import DietEdit from "./DietEdit";
 import Diet from "./Diet";
 import { useSelector } from "react-redux";
@@ -35,7 +34,7 @@ function Index(props) {
                     // <House family={data.results[0]} />
                     <Diet family={data.results[0]} />
                 ) : null} */}
-                <Diet family={data.results} />
+                <Diet menu={data.results} />
                 <DietEdit />
             </SearchResult>
         </>

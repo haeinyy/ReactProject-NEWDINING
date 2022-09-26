@@ -27,10 +27,10 @@ import { add } from "../redux/menu";
 const card_style = {
     width: "50vw",
 };
-function Diet({ family }) {
+function Diet({ menu }) {
     const dispatch = useDispatch();
 
-    console.log(family);
+    console.log(menu);
     return (
         <Card style={card_style}>
             <MDBox
@@ -48,16 +48,17 @@ function Diet({ family }) {
                     p={0}
                     m={0}
                 >
-                    {family.length === 0 ? (
-                        <div>메뉴를 검색 해주세요</div>
+                    {menu.length === 0 ? (
+                        <div>검색 결과가 없습니다.</div>
                     ) : null}
-                    {family !== undefined ? (
+                    {menu !== undefined ? (
                         <ul>
-                            {family.map((el, i) => (
+                            {menu.map((el, i) => (
                                 <Menu
                                     onClick={() => alert("test")}
                                     key={i}
-                                    date={el.name}
+                                    name={el.name}
+                                    calorie={el.calorie}
                                     price="200"
                                 />
                             ))}

@@ -27,7 +27,7 @@ import { useSelector } from "react-redux";
 const card_style = {
     width: "50vw",
 };
-function DietEdit({ family }) {
+function DietEdit() {
     const menus = useSelector((state) => state.menu.value);
     // console.log(family);
     return (
@@ -49,8 +49,13 @@ function DietEdit({ family }) {
                 >
                     <ul>
                         {menus.map((el, i) => (
+                            // console.log("loop", el, i)
                             // <li key={i}>{el.name}</li>
-                            <MenuSelect key={i} name={el.name} price="200" />
+                            <MenuSelect
+                                key={i}
+                                name={el.name}
+                                calorie={el.calorie}
+                            />
                         ))}
                     </ul>
                 </MDBox>

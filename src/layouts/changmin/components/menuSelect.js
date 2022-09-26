@@ -25,7 +25,8 @@ import MDTypography from "components/MDTypography";
 
 import { useDispatch } from "react-redux";
 import { remove } from "../redux/menu";
-function MenuSelect({ name, id, price, noGutter }) {
+function MenuSelect({ name, calorie }) {
+    console.log(calorie);
     const dispatch = useDispatch();
     return (
         <MDBox
@@ -35,26 +36,28 @@ function MenuSelect({ name, id, price, noGutter }) {
             alignItems="center"
             py={1}
             pr={1}
-            mb={noGutter ? 0 : 1}
+            // mb={noGutter ? 0 : 1}
         >
-            <MDBox lineHeight={1.125}>
-                <MDTypography
-                    display="block"
-                    variant="button"
-                    fontWeight="medium"
-                >
-                    {name}
-                </MDTypography>
-            </MDBox>
-            <MDBox display="flex" alignItems="center">
-                <MDTypography
-                    variant="button"
-                    fontWeight="regular"
-                    color="text"
-                >
-                    {price}
-                </MDTypography>
-            </MDBox>
+            <div>
+                <MDBox lineHeight={1.125}>
+                    <MDTypography
+                        display="block"
+                        variant="button"
+                        fontWeight="medium"
+                    >
+                        {name}
+                    </MDTypography>
+                </MDBox>
+                <MDBox display="flex" alignItems="center">
+                    <MDTypography
+                        variant="button"
+                        fontWeight="regular"
+                        color="text"
+                    >
+                        {calorie.carbonate} + {calorie.protein} + {calorie.fat}
+                    </MDTypography>
+                </MDBox>
+            </div>
             <MDBox
                 display="flex"
                 alignItems="center"
@@ -75,17 +78,9 @@ function MenuSelect({ name, id, price, noGutter }) {
     );
 }
 
-// Setting default values for the props of Invoice
-MenuSelect.defaultProps = {
-    noGutter: false,
-};
-
 // Typechecking props for the Invoice
 MenuSelect.propTypes = {
     name: PropTypes.string.isRequired,
-    id: PropTypes.string,
-    price: PropTypes.string,
-    noGutter: PropTypes.bool,
 };
 
 export default MenuSelect;

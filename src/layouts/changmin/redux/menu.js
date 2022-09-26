@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const menuSlice = createSlice({
     name: "menu",
-    // initialState: { value: { name: "", age: 0, email: "" } },
     initialState: { value: [], names: [] },
-    // initialState: { items: [] },
     reducers: {
         add: (state, action) => {
             if (state.names.includes(action.payload.name) === false) {
@@ -17,9 +15,6 @@ export const menuSlice = createSlice({
         remove: (state, action) => {
             console.log("remove action: ", action);
             console.log(state.value);
-            // return state.value.filter((item) => item.name !== action.payload);
-            // state.value.filter((state) => state.value !== action.payload);
-            // state.value.splice(0, 1);
             for (var i = 0; i < state.value.length; i++) {
                 if (state.value[i].name === action.payload) {
                     state.value.splice(i, 1);

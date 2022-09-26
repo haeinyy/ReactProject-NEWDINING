@@ -19,7 +19,7 @@ import MDTypography from "components/MDTypography";
 import { useDispatch } from "react-redux";
 import { add } from "../redux/menu";
 
-function Menu({ date, price }) {
+function Menu({ name, calorie }) {
     const dispatch = useDispatch();
     return (
         <MDBox
@@ -33,7 +33,7 @@ function Menu({ date, price }) {
             <div
                 onClick={() => {
                     // dispatch(add({ date: date }));
-                    dispatch(add({ name: date }));
+                    dispatch(add({ name: name, calorie: calorie }));
                 }}
                 // onClick={() => {
                 // alert(date, price);
@@ -45,7 +45,7 @@ function Menu({ date, price }) {
                         variant="button"
                         fontWeight="medium"
                     >
-                        {date}
+                        {name}
                     </MDTypography>
                 </MDBox>
                 <MDBox display="flex" alignItems="center">
@@ -54,7 +54,7 @@ function Menu({ date, price }) {
                         fontWeight="regular"
                         color="text"
                     >
-                        {price}
+                        {calorie.carbonate} + {calorie.protein} + {calorie.fat}
                     </MDTypography>
                 </MDBox>
             </div>
