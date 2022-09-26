@@ -1,16 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import useFetch from "../hooks/useFetch";
 import DietEdit from "./DietEdit";
 import Diet from "./Diet";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { calculate } from "../redux/menu";
 
 function Index(props) {
+    const dispatch = useDispatch();
     const { data, setData } = useFetch();
     const menus = useSelector((state) => state.menu.value);
+    const carbonate = useSelector((state) => state.menu.carbonate);
+    const protein = useSelector((state) => state.menu.protein);
+    const fat = useSelector((state) => state.menu.fat);
     console.log("redux menus:", menus);
     console.log(data.results);
+    useEffect(() => {
+        dispatch(calculate());
+    }, [menus]);
     return (
         <>
             <PlaceholderStack>
@@ -37,6 +45,10 @@ function Index(props) {
                 <Diet menu={data.results} />
                 <DietEdit />
             </SearchResult>
+            <div>칼로리 정보</div>
+            <div>탄수화물 : {carbonate}</div>
+            <div>단백질 : {protein}</div>
+            <div>지방 : {fat}</div>
         </>
     );
 }

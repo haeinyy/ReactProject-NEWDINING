@@ -2,12 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const menuSlice = createSlice({
     name: "menu",
-    initialState: { value: [], names: [] },
+    initialState: { value: [], names: [], carbonate: 0, fat: 0, protein: 0 },
     reducers: {
         add: (state, action) => {
             if (state.names.includes(action.payload.name) === false) {
                 state.value.push(action.payload);
                 state.names.push(action.payload.name);
+                state.carbonate += action.payload.calorie.carbonate;
+                state.protein += action.payload.calorie.protein;
+                state.fat += action.payload.calorie.fat;
             } else {
                 alert("중복된 메뉴입니다");
             }
@@ -17,14 +20,23 @@ export const menuSlice = createSlice({
             console.log(state.value);
             for (var i = 0; i < state.value.length; i++) {
                 if (state.value[i].name === action.payload) {
+                    state.carbonate -= state.value[i].calorie.carbonate;
+                    state.protein -= state.value[i].calorie.protein;
+                    state.fat -= state.value[i].calorie.fat;
+
                     state.value.splice(i, 1);
                     state.names.splice(i, 1);
                     i--;
                 }
             }
         },
+        calculate: (state, action) => {
+            console.log("c: ", state.carbonate);
+            console.log("p: ", state.protein);
+            console.log("f: ", state.fat);
+        },
     },
 });
 
 export default menuSlice.reducer;
-export const { add, remove } = menuSlice.actions;
+export const { add, remove, calculate } = menuSlice.actions;
