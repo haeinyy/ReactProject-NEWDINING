@@ -54,6 +54,7 @@ function DietEdit() {
                             <MenuSelect
                                 key={i}
                                 name={el.name}
+                                id={el.id}
                                 calorie={el.calorie}
                             />
                         ))}

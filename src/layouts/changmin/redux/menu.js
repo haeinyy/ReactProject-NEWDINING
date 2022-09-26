@@ -2,7 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const menuSlice = createSlice({
     name: "menu",
-    initialState: { value: [], names: [], carbonate: 0, fat: 0, protein: 0 },
+    initialState: {
+        value: [],
+        names: [],
+        carbonate: 0,
+        fat: 0,
+        protein: 0,
+        main: [],
+        sub: [],
+        desert: [],
+    },
     reducers: {
         add: (state, action) => {
             if (state.names.includes(action.payload.name) === false) {
@@ -30,6 +39,25 @@ export const menuSlice = createSlice({
                 }
             }
         },
+        changeCategory: (state, action) => {
+            console.log(action.payload);
+            if (
+                (state.main.length === 0) &
+                (state.desert[0] !== action.payload)
+            ) {
+                state.main.push(action.payload);
+            } else if (
+                (state.main.length === 1) &
+                (state.desert.length === 0) &
+                (state.main[0] !== action.payload)
+            ) {
+                state.desert.push(action.payload);
+            } else if (state.main[0] === action.payload) {
+                state.main.pop();
+            } else if (state.desert[0] === action.payload) {
+                state.desert.pop();
+            }
+        },
         calculate: (state, action) => {
             console.log("c: ", state.carbonate);
             console.log("p: ", state.protein);
@@ -39,4 +67,4 @@ export const menuSlice = createSlice({
 });
 
 export default menuSlice.reducer;
-export const { add, remove, calculate } = menuSlice.actions;
+export const { add, remove, calculate, changeCategory } = menuSlice.actions;

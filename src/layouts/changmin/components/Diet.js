@@ -57,6 +57,7 @@ function Diet({ menu }) {
                                 <Menu
                                     onClick={() => alert("test")}
                                     key={i}
+                                    id={el.id}
                                     name={el.name}
                                     calorie={el.calorie}
                                     price="200"

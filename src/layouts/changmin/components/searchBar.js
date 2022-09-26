@@ -14,8 +14,10 @@ function Index(props) {
     const carbonate = useSelector((state) => state.menu.carbonate);
     const protein = useSelector((state) => state.menu.protein);
     const fat = useSelector((state) => state.menu.fat);
+    const main = useSelector((state) => state.menu.main);
+    const desert = useSelector((state) => state.menu.desert);
     console.log("redux menus:", menus);
-    console.log(data.results);
+    console.log("raw data: ", data.results);
     useEffect(() => {
         dispatch(calculate());
     }, [menus]);
@@ -49,6 +51,8 @@ function Index(props) {
             <div>탄수화물 : {carbonate}</div>
             <div>단백질 : {protein}</div>
             <div>지방 : {fat}</div>
+            <div>main: {main[0]}</div>
+            <div>desert: {desert[0]}</div>
         </>
     );
 }
