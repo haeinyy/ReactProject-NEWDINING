@@ -27,7 +27,7 @@ import MDButton from "components/MDButton";
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
 
-function DietItem({ name, company, email, vat, noGutter }) {
+function DietItem({ course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
 
@@ -40,7 +40,6 @@ function DietItem({ name, company, email, vat, noGutter }) {
       bgColor={darkMode ? "transparent" : "grey-100"}
       borderRadius="lg"
       p={3}
-      mb={noGutter ? 0 : 1}
       mt={2}
     >
       <MDBox width="100%" display="flex" flexDirection="column">
@@ -52,62 +51,76 @@ function DietItem({ name, company, email, vat, noGutter }) {
           mb={2}
         >
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
-            {name}
+            {course}
             <MDButton variant="text" color={darkMode ? "white" : "dark"}>
               <Icon>edit</Icon>&nbsp;edit
             </MDButton>
           </MDTypography>
-
-          {/* <MDBox display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }} ml={{ xs: -1.5, sm: 0 }}>
-            <MDBox mr={1}>
-              <MDButton variant="text" color="error">
-                <Icon>delete</Icon>&nbsp;delete
-              </MDButton>
-            </MDBox>
-            <MDButton variant="text" color={darkMode ? "white" : "dark"}>
-              <Icon>edit</Icon>&nbsp;edit
-            </MDButton>
-          </MDBox> */}
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
           <MDTypography variant="caption" color="text">
-            {/* Company Name:&nbsp;&nbsp;&nbsp; */}
             <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
-              {company}
+              {mainMenu}
             </MDTypography>
           </MDTypography>
         </MDBox>
         <MDBox mb={1} lineHeight={0}>
           <MDTypography variant="caption" color="text">
-            {/* Email Address:&nbsp;&nbsp;&nbsp; */}
-            <MDTypography variant="caption" fontWeight="medium">
-              {email}
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {sub1}
             </MDTypography>
           </MDTypography>
         </MDBox>
-        <MDTypography variant="caption" color="text">
-          {/* VAT Number:&nbsp;&nbsp;&nbsp; */}
-          <MDTypography variant="caption" fontWeight="medium">
-            {vat}
+        <MDBox mb={1} lineHeight={0}>
+          <MDTypography variant="caption" color="text">
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {sub2}
+            </MDTypography>
           </MDTypography>
-        </MDTypography>
+        </MDBox>
+        <MDBox mb={1} lineHeight={0}>
+          <MDTypography variant="caption" color="text">
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {sub3}
+            </MDTypography>
+          </MDTypography>
+        </MDBox>
+        <MDBox mb={1} lineHeight={0}>
+          <MDTypography variant="caption" color="text">
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {sub4}
+            </MDTypography>
+          </MDTypography>
+        </MDBox>
+        <MDBox mb={1} lineHeight={0}>
+          <MDTypography variant="caption" color="text">
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {sub5}
+            </MDTypography>
+          </MDTypography>
+        </MDBox>
+        <MDBox mb={1} lineHeight={0}>
+          <MDTypography variant="caption" color="text">
+            <MDTypography variant="caption" fontWeight="medium" textTransform="capitalize">
+              {dessert}
+            </MDTypography>
+          </MDTypography>
+        </MDBox>
       </MDBox>
     </MDBox>
   );
 }
 
-// Setting default values for the props of Bill
-DietItem.defaultProps = {
-  noGutter: false,
-};
-
 // Typechecking props for the Bill
-DietItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  vat: PropTypes.string.isRequired,
-  noGutter: PropTypes.bool,
-};
+// DietItem.propTypes = {
+//   course: PropTypes.string.isRequired,
+//   mainMenu: PropTypes.string.isRequired,
+//   sub1: PropTypes.string.isRequired,
+//   sub2: PropTypes.string.isRequired,
+//   sub3: PropTypes.string.isRequired,
+//   sub4: PropTypes.string.isRequired,
+//   sub5: PropTypes.string.isRequired,
+//   dessert: PropTypes.string.isRequired
+// };
 
 export default DietItem;

@@ -1,27 +1,24 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 //import 'react-calendar/dist/Calendar.css'; // css import
-import 'layouts/dietList/cal.css';
-import 'moment/locale/ko'
+import 'layouts/dietMonth/calendar.css';
 import moment from 'moment';
+import 'moment/locale/ko'
 
 // @mui material components
 import Grid from "@mui/material/Grid";
-
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
 import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
-//import Korean from "layouts/dietList/components/Korean";
-//import Asian from "layouts/dietList/components/Asian";
-import DList from "layouts/dietList/components/dList";
+import DietList from "layouts/dietMonth/components/dietList";
 
-function DietList() {
+function DietMonth() {
   const [value, onChange] = useState(new Date());
   const styleObj = {
     margin: "20px"
   }
-  const styleObj5 = {
+  const styleObj2 = {
     textAlign: "center"
   }
   moment.lang('ko', {weekdays: ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],
@@ -32,23 +29,21 @@ function DietList() {
       <ShinsegaeNavbar />
       <Calendar onChange={onChange} value={value} />
         <br></br>
-        <div className="text-gray-500 mt-4" style={styleObj5}>
+        <div className="text-gray-500 mt-4" style={styleObj2}>
            {moment(value).format("YYYY년 MM월 DD일 dddd")} 
         </div>
         <div>
-            <MDBox mb={3} style={styleObj}>
-           <Grid container spacing={3}>
-             <Grid item xs={12} md={7}>
-               <DList ddate={ moment(value).format("YYYYMMDD") }/>
-               <br></br>
-               
-               <br></br>
-             </Grid>
-           </Grid>
-         </MDBox>
+          <MDBox mb={3} style={styleObj}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={7}>
+                <DietList ddate={ moment(value).format("YYYYMMDD") }/>
+                  <br></br>
+              </Grid>
+            </Grid>
+          </MDBox>
         </div>
     </div>
   );
 }
 
-export default DietList;
+export default DietMonth;

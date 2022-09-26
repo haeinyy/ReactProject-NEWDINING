@@ -37,8 +37,6 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Hee from "layouts/hee";
-import DietList from "layouts/dietList";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -46,6 +44,9 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+
+import Hee from "layouts/hee";
+import DietMonth from "layouts/dietMonth";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -125,11 +126,11 @@ const routes = [
     },
     {
         type: "collapse",
-        name: "dietList",
-        key: "dietList",
+        name: "dietMonth",
+        key: "dietMonth",
         icon: <Icon fontSize="small">dashboard</Icon>,
-        route: "/dietList",
-        component: <DietList />,
+        route: "/dietMonth",
+        component: <DietMonth />,
     }
 ];
 
