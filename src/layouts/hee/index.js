@@ -20,53 +20,40 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavbar";
-import Footer from "examples/Footer";
-import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
-import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-
-// Data
-import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
-import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 
 // Dashboard components
-import Projects from "layouts/dashboard/components/Projects";
-import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 import BillingInformation from "layouts/hee/components/BillingInformation";
+import { useLocation } from "react-router-dom";
 
 function Dashboard() {
-    const { sales, tasks } = reportsLineChartData;
-    const styleObj = {
-        margin: "20px"
-	}
+  const styleObj = {
+    margin: "20px"
+  }
+
+  // TODO : 데이터 전달하면서 페이지 이동
+  // 1. useLocation 훅 취득
+  const location = useLocation();
+
+  // 2. location.state 에서 파라미터 취득
+  const tempDate = location.state.tempDate.tempDate;
+  const course = location.state.course.course;
+
+  console.log("템프날짜", tempDate);
+  console.log("코스", course);
     
-    return (
-        // <DashboardLayout>
-        //     <ShinsegaeNavbar />
-        //     <p>test</p>
-        //     <MDBox mb={3}>
-        //   <Grid container spacing={3}>
-        //     <Grid item xs={12} md={7}>
-        //       <BillingInformation />
-        //     </Grid>
-        //   </Grid>
-        // </MDBox>
-        //     <Footer />
-        // </DashboardLayout>
-        <div>
-            <ShinsegaeNavbar />
-            <MDBox mb={3} style={styleObj}>
-           <Grid container spacing={3}>
-             <Grid item xs={12} md={7}>
-               <BillingInformation />
-             </Grid>
-           </Grid>
-         </MDBox>
-        </div>
-    );
+  return (
+    <div>
+      <ShinsegaeNavbar />
+      <MDBox mb={3} style={styleObj}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={7}>
+            <BillingInformation />
+          </Grid>
+        </Grid>
+      </MDBox>
+    </div>
+  );
 }
 
 export default Dashboard;

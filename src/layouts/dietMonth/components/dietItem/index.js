@@ -26,10 +26,22 @@ import MDButton from "components/MDButton";
 
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "context";
+import { useNavigate } from "react-router-dom";
 
-function DietItem({ course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
+function DietItem({ tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
+  const navigate = useNavigate();
+
+  const onClickEditButton = () => {
+    // TODO : 창민님 페이지 경로로 변경해야 함 + 전달하는 날짜 형식 체크 필요
+    navigate('/hee', {
+      state: {
+        tempDate: {tempDate},
+        course: {course}
+      }
+    });
+  };
 
   return (
     <MDBox
@@ -50,9 +62,10 @@ function DietItem({ course, mainMenu, sub1, sub2, sub3, sub4, sub5, dessert }) {
           flexDirection={{ xs: "column", sm: "row" }}
           mb={2}
         >
+          {tempDate}
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
             {course}
-            <MDButton variant="text" color={darkMode ? "white" : "dark"}>
+            <MDButton variant="text" color={darkMode ? "white" : "dark"} onClick={onClickEditButton}>
               <Icon>edit</Icon>&nbsp;edit
             </MDButton>
           </MDTypography>

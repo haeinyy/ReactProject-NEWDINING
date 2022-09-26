@@ -28,6 +28,7 @@ function DietList(props) {
   const [diets, setDiets] = useState([]);
   const [len, setLen] = useState(null);
   const [tempList, setTempList] = useState([]);
+  const [tempDate, setTempDate] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +40,7 @@ function DietList(props) {
         setDiets(response.data);
         setLen(response.data.length);
         setTempList(response.data.sort((a,b) => a.course > b.course?1:-1));
+        setTempDate(props.ddate);
       } catch (e) {
         console.log(e);
       }
@@ -54,10 +56,12 @@ function DietList(props) {
         <MDBox pt={1} pb={2} px={2}>
           <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
             <DietItem
+            tempDate={tempDate}
             course="KOREAN"
             mainMenu="식단 정보가 없습니다. :("
             />
             <DietItem
+            tempDate={tempDate}
             course="WESTERN"
             mainMenu="식단 정보가 없습니다. :("
             />
@@ -75,8 +79,9 @@ function DietList(props) {
             if (tempList.length === 1) {
               if (item.course === "WESTERN") {
                 return <MDBox>
-                  <DietItem key="7" course="KOREAN" mainMenu="식단 정보가 없습니다. :("/>
+                  <DietItem key="7" tempDate={tempDate} course="KOREAN" mainMenu="식단 정보가 없습니다. :("/>
                   <DietItem key={index}
+                  tempDate={item.date}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
                   sub1={item.subMenus[0].name}
@@ -90,6 +95,7 @@ function DietList(props) {
               } else if (item.course === "KOREAN") {
                 return <MDBox>
                   <DietItem key={index}
+                  tempDate={item.date}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
                   sub1={item.subMenus[0].name}
@@ -99,11 +105,12 @@ function DietList(props) {
                   sub5={item.subMenus[4].name}
                   dessert={item.dessert.name}
                   />
-                  <DietItem key="7" course="WESTERN" mainMenu="식단 정보가 없습니다. :("/>
+                  <DietItem key="7" tempDate={tempDate} course="WESTERN" mainMenu="식단 정보가 없습니다. :("/>
                   </MDBox>
               }
             } else if (tempList.length === 2) {
               return <DietItem key={index}
+                tempDate={item.date}
                 course={item.course}
                 mainMenu={item.mainMenu.name}
                 sub1={item.subMenus[0].name}
