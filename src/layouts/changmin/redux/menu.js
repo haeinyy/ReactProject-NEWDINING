@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import menu from "assets/theme/components/menu";
 import axios from "axios";
 
 export const menuSlice = createSlice({
@@ -71,10 +72,8 @@ export const menuSlice = createSlice({
                 return;
             }
             const subMenus = [];
-            const date = "20220928";
-            // const date = action.payload.date
-            const course = "KOREAN";
-            // const course = action.payload.course
+            const date = action.payload.date;
+            const course = action.payload.course;
             for (const menus in state.value) {
                 if (
                     (state.value[menus].id !== state.main[0]) &

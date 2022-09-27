@@ -26,7 +26,12 @@ function DateSelector() {
     return (
         <div style={menu_style}>
             <div style={font}>9/12 KOREAN</div>
-            <button style={button_style} onClick={() => dispatch(makeDiet())}>
+            <button
+                style={button_style}
+                onClick={() =>
+                    dispatch(makeDiet({ date: "20220929", course: "KOREAN" }))
+                }
+            >
                 완료
             </button>
         </div>
