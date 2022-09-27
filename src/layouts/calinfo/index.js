@@ -41,14 +41,14 @@ import DataTable from 'examples/Tables/DataTable';
 import calorieTableData from 'layouts/calinfo/data/calorieTableData';
 import { date } from 'yup';
 
-async function Tables() {
+function Tables() {
   const { columns: pColumns, rows: pRows } = calorieTableData();
-  const [data, setData] = useState(null);
-  const date = '20220925';
-  const url = '/diets/diet?date=' + date;
+  // const [data, setData] = useState(null);
+  // const date = '20220925';
+  // const url = '/diets/diet?date=' + date;
 
-  const res = await axios.get(url);
-  console.log(res.data);
+  // const res = await axios.get(url);
+  // console.log(res.data);
 
   return (
     <DashboardLayout>
