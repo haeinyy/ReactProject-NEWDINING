@@ -21,23 +21,24 @@ import Footer from 'examples/Footer';
 // Componenet
 import Caltable from 'layouts/calinfo/component/caltable';
 import Piechart from 'layouts/calinfo/component/piechart';
+import { distance } from 'chroma-js';
 
-const total_tan = 0;
-const total_dan = 0;
-const total_gi = 0;
-const totalcal = 0;
+var total_tan = 0;
+var total_dan = 0;
+var total_gi = 0;
+var totalcal = 0;
+const allcalarray = [];
 const date = '20220925';
 const diet_course = 'KOREAN';
 const weekdays = Array('일', '월', '화', '수', '목', '금', '토');
 
 function Calinfo() {
-  // const { columns: pColumns, rows: pRows } = calorieTableData();
   const [loading, setLoading] = useState(false);
   const [diets, setDiets] = useState([]);
   const [len, setLen] = useState(null);
   // const [totalcal, setTotlacal] = useState(null);
-  const [tempList, setTempList] = useState([]);
-  const [tempDate, setTempDate] = useState(null);
+  // const [tempList, setTempList] = useState([]);
+  // const [tempDate, setTempDate] = useState(null);
 
   // const date = '20220925';
   // const url = '/diets/diet?date=' + date;
@@ -63,11 +64,23 @@ function Calinfo() {
           }
         }
         console.log(diets);
+        // tan/dan/gi 합계
+        allcalarray.push(diets.mainMenu.calorie);
+        allcalarray.push(diets.dessert.calorie);
+        for (let i = 0; i < diets.subMenus.length; i++) {
+          allcalarray.push(diets.subMenus[i].calorie);
+        }
+        console.log(allcalarray);
 
-        setTempList(
-          response.data.sort((a, b) => (a.course > b.course ? 1 : -1))
-        );
-        console.log(tempList);
+        for (let i = 0; i < allcalarray.length; i++) {
+          total_tan += allcalarray[i].carbonate;
+          total_dan += allcalarray[i].protein;
+          total_gi += allcalarray[i].fat;
+        }
+
+        // 총 칼로리 계산
+        totalcal = total_tan * 4 + total_dan * 4 + total_gi * 9;
+
         setTempDate(date);
       } catch (e) {
         console.log(e);
@@ -77,8 +90,6 @@ function Calinfo() {
     };
     fetchData();
   }, [date]);
-
-  // tan,dan,gi 계산
 
   return (
     <DashboardLayout>
