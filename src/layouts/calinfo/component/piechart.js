@@ -57,8 +57,8 @@ function Charts(props) {
               y={y}
               dx={dx}
               dy={dy}
-              dominant-baseline="central"
-              text-anchor="middle"
+              dominantBaseline="central"
+              textAnchor="middle"
               style={{
                 fill: '#fff',
                 pointerEvents: 'none',
