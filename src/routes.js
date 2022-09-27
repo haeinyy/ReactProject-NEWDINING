@@ -47,6 +47,7 @@ import SignUp from "layouts/authentication/sign-up";
 
 import Hee from "layouts/hee";
 import DietMonth from "layouts/dietMonth";
+import Admin from "layouts/admin";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -131,6 +132,14 @@ const routes = [
         icon: <Icon fontSize="small">dashboard</Icon>,
         route: "/dietMonth",
         component: <DietMonth />,
+    },
+    {
+        type: "collapse",
+        name: "admin",
+        key: "admin",
+        icon: <Icon fontSize="small">dashboard</Icon>,
+        route: "/admin",
+        component: <Admin />,
     }
 ];
 
