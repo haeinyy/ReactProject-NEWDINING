@@ -6,39 +6,29 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { PieChart } from 'react-minimal-pie-chart';
-
 // @mui material components
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox';
-import MDTypography from 'components/MDTypography';
-import MDSnackbar from 'components/MDSnackbar';
-import MDAlert from 'components/MDAlert';
-import MDButton from 'components/MDButton';
 
 // Material Dashboard 2 React example components
 import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
 import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 import ShinsegaeNavbar from 'examples/Navbars/ShinsegaeNavbar';
 import Footer from 'examples/Footer';
-import DataTable from 'examples/Tables/DataTable';
-
-// Data
-import CalorieTableData from 'layouts/calinfo/data/calorieTableData';
 
 // Componenet
 import Caltable from 'layouts/calinfo/component/caltable';
 import Piechart from 'layouts/calinfo/component/piechart';
 
-const tan = 0;
-const dan = 0;
-const gi = 0;
+const total_tan = 0;
+const total_dan = 0;
+const total_gi = 0;
 const totalcal = 0;
 const date = '20220925';
 const diet_course = 'KOREAN';
+const weekdays = Array('일', '월', '화', '수', '목', '금', '토');
 
 function Calinfo() {
   // const { columns: pColumns, rows: pRows } = calorieTableData();
@@ -97,7 +87,26 @@ function Calinfo() {
       <MDBox pt={6} pb={3}>
         <Grid container spacing={1}>
           {/* table */}
-          <Caltable tan={tan} dan={dan} gi={gi} totalcal={totalcal} />
+          <Caltable
+            tan={total_tan}
+            dan={total_dan}
+            gi={total_gi}
+            totalcal={totalcal}
+            // date={date}
+            month={date.substring(5, 6)}
+            day={date.substring(6)}
+            week={
+              weekdays[
+                new Date(
+                  date.substring(0, 4) +
+                    '-' +
+                    date.substring(4, 6) +
+                    '-' +
+                    date.substring(6, 8)
+                ).getDay()
+              ]
+            }
+          />
           {/* <CalorieTableData tan={tan} dan={dan} gi={gi} /> */}
           {/* <Grid item xs={12}>
             <Card>
@@ -143,7 +152,7 @@ function Calinfo() {
           </Grid> */}
           {/* pie chart */}
           <br />
-          <Piechart tan={tan} dan={dan} gi={gi} />
+          <Piechart tan={total_tan} dan={total_dan} gi={total_gi} />
           {/* <Grid item xs={12}>
             <Card>
               <MDBox
