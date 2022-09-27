@@ -41,15 +41,25 @@ const url = '/diets/diet?date=' + date;
 const Setting = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    const fetchdata = async () => {
-      try {
-        const reponse = await axios.get(url);
-        setData(reponse.data.data);
-      } catch (e) {
+    axios({
+      method: 'get',
+      url: url,
+    })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((e) => {
         console.log(e);
-      }
-    };
-    fetchdata();
+      });
+    // const fetchdata = async () => {
+    //   try {
+    //     const reponse = await axios.get(url);
+    //     setData(reponse.data.data);
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    // };
+    // fetchdata();
   }, []);
 };
 // const [data, setData] = useState(null);
