@@ -1,7 +1,10 @@
 import { height } from "@mui/system";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { makeDiet } from "../redux/menu";
 
 function DateSelector() {
+    const dispatch = useDispatch();
     const menu_style = {
         backgroundColor: "#D70C19",
         color: "white",
@@ -23,7 +26,9 @@ function DateSelector() {
     return (
         <div style={menu_style}>
             <div style={font}>9/12 KOREAN</div>
-            <button style={button_style}>완료</button>
+            <button style={button_style} onClick={() => dispatch(makeDiet())}>
+                완료
+            </button>
         </div>
     );
 }

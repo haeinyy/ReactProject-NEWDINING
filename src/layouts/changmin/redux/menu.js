@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const menuSlice = createSlice({
     name: "menu",
@@ -11,6 +12,7 @@ export const menuSlice = createSlice({
         main: [],
         sub: [],
         desert: [],
+        diet: {},
     },
     reducers: {
         add: (state, action) => {
@@ -63,8 +65,49 @@ export const menuSlice = createSlice({
             console.log("p: ", state.protein);
             console.log("f: ", state.fat);
         },
+        makeDiet: (state, action) => {
+            if ((state.main.length === 0) | (state.desert.length === 0)) {
+                alert("주식과 디저트를 골라주세요");
+                return;
+            }
+            const subMenus = [];
+            const date = "20220928";
+            // const date = action.payload.date
+            const course = "KOREAN";
+            // const course = action.payload.course
+            for (const menus in state.value) {
+                if (
+                    (state.value[menus].id !== state.main[0]) &
+                    (state.value[menus].id !== state.desert[0])
+                ) {
+                    subMenus.push(state.value[menus].id);
+                }
+            }
+            const diet = {
+                course: course,
+                date: date,
+                mainMenuId: state.main[0],
+                dessertId: state.desert[0],
+                subMenuIds: subMenus,
+            };
+            state.diet = diet;
+            setTimeout(() => {
+                const fetch = async () => {
+                    try {
+                        const tmp_res = "/diets";
+                        await axios.post(tmp_res, diet);
+                        alert("식단이 등록되었습니다");
+                    } catch (err) {
+                        console.error(err);
+                        alert("식단이 등록에 실패했습니다");
+                    }
+                };
+                fetch();
+            }, 1000);
+        },
     },
 });
 
 export default menuSlice.reducer;
-export const { add, remove, calculate, changeCategory } = menuSlice.actions;
+export const { add, remove, calculate, changeCategory, makeDiet } =
+    menuSlice.actions;
