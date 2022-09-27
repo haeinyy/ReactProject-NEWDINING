@@ -12,6 +12,21 @@ import Card from '@mui/material/Card';
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
+type LabelRenderProps = {
+  x: number,
+  y: number,
+  dx: number,
+  dy: number,
+  textAnchor: string,
+  dataEntry: {
+    startAngle: number,
+    degrees: number,
+    percentage: number,
+  },
+  dataIndex: number,
+  style: React.CSSProperties,
+};
+
 function Charts(props) {
   return (
     <Grid item xs={12}>
@@ -35,8 +50,29 @@ function Charts(props) {
             { title: 'dan', value: props.dan, color: '#FFE9A0' },
             { title: 'gi', value: props.gi, color: '#CC3636' },
           ]}
-          // label={({ dataEntry }) => dataEntry.value + '%'}
-          label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
+          // label={(labelRenderProps: LabelRenderProps) => null}
+          label={({ x, y, dx, dy, dataEntry }) => (
+            <text
+              x={x}
+              y={y}
+              dx={dx}
+              dy={dy}
+              dominant-baseline="central"
+              text-anchor="middle"
+              style={{
+                fill: '#fff',
+                pointerEvents: 'none',
+                fontSize: '3px',
+              }}
+            >
+              <tspan x={x} y={y} dx={dx} dy={dy}>
+                {dataEntry.title}
+              </tspan>
+              <tspan x={x} y={y + 5} dx={dx} dy={dy}>{`${Math.round(
+                dataEntry.percentage
+              )}%`}</tspan>
+            </text>
+          )}
           // totalValue={100}
           lineWidth={40}
           lengthAngle={360}

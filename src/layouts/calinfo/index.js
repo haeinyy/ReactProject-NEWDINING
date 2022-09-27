@@ -21,7 +21,6 @@ import Footer from 'examples/Footer';
 // Componenet
 import Caltable from 'layouts/calinfo/component/caltable';
 import Piechart from 'layouts/calinfo/component/piechart';
-import { distance } from 'chroma-js';
 
 var total_tan = 0;
 var total_dan = 0;
@@ -37,14 +36,8 @@ function Calinfo() {
   const [diets, setDiets] = useState([]);
   const [len, setLen] = useState(null);
   // const [totalcal, setTotlacal] = useState(null);
-  // const [tempList, setTempList] = useState([]);
-  // const [tempDate, setTempDate] = useState(null);
-
-  // const date = '20220925';
-  // const url = '/diets/diet?date=' + date;
-
-  // const res = await axios.get(url);
-  // console.log(res.data);
+  const [tempList, setTempList] = useState([]);
+  const [tempDate, setTempDate] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
