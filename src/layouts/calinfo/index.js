@@ -1,20 +1,9 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+/*
+칼로리 정보 화면
 */
 
 // api 연동
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { PieChart } from 'react-minimal-pie-chart';
@@ -39,11 +28,35 @@ import DataTable from 'examples/Tables/DataTable';
 
 // Data
 import calorieTableData from 'layouts/calinfo/data/calorieTableData';
-import { date } from 'yup';
+// import { date } from 'yup';
+
+// const tan = 0;
+// const dan = 0;
+// const gi = 0;
+// const { tan, dan, gi } = ingrident;
+const totalcal = 0;
+const date = '20220925';
+const url = '/diets/diet?date=' + date;
+
+const Setting = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchdata = async () => {
+      try {
+        const reponse = await axios.get(url);
+        setData(reponse.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchdata();
+  }, []);
+};
+// const [data, setData] = useState(null);
 
 function Tables() {
   const { columns: pColumns, rows: pRows } = calorieTableData();
-  // const [data, setData] = useState(null);
+
   // const date = '20220925';
   // const url = '/diets/diet?date=' + date;
 
@@ -148,4 +161,4 @@ function Tables() {
   );
 }
 
-export default Tables;
+export default { Setting, Tables };
