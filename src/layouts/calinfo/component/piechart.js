@@ -57,9 +57,7 @@ const url = '/diets/diet?date=' + date;
 // };
 // const [data, setData] = useState(null);
 
-function Charts() {
-  const { columns: pColumns, rows: pRows } = calorieTableData();
-
+function Charts(props) {
   // const date = '20220925';
   // const url = '/diets/diet?date=' + date;
 
@@ -84,10 +82,10 @@ function Charts() {
         </MDBox>
         <PieChart
           data={[
-            { title: 'tan', value: 100, color: '#367E18' },
-            { title: 'dan', value: 250, color: '#FFE9A0' },
+            { title: 'tan', value: props.tan, color: '#367E18' },
+            { title: 'dan', value: props.dan, color: '#FFE9A0' },
             // { title: 'gi', value: 400, color: '#A5D1D9' },
-            { title: 'gi', value: 400, color: '#CC3636' },
+            { title: 'gi', value: props.gi, color: '#CC3636' },
           ]}
           // label={({ dataEntry }) => dataEntry.value + '%'}
           label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}

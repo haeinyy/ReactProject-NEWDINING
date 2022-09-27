@@ -27,7 +27,7 @@ import Footer from 'examples/Footer';
 import DataTable from 'examples/Tables/DataTable';
 
 // Data
-import calorieTableData from 'layouts/calinfo/data/calorieTableData';
+import CalorieTableData from 'layouts/calinfo/data/calorieTableData';
 
 // Componenet
 import Caltable from 'layouts/calinfo/component/caltable';
@@ -36,17 +36,16 @@ import Piechart from 'layouts/calinfo/component/piechart';
 const tan = 0;
 const dan = 0;
 const gi = 0;
-// const { tan, dan, gi } = ingrident;
 const totalcal = 0;
 const date = '20220925';
 const diet_course = 'KOREAN';
 
 function Calinfo() {
-  const { columns: pColumns, rows: pRows } = calorieTableData();
+  // const { columns: pColumns, rows: pRows } = calorieTableData();
   const [loading, setLoading] = useState(false);
   const [diets, setDiets] = useState([]);
   const [len, setLen] = useState(null);
-  const [totalcal, setTotlacal] = useState(null);
+  // const [totalcal, setTotlacal] = useState(null);
   const [tempList, setTempList] = useState([]);
   const [tempDate, setTempDate] = useState(null);
 
@@ -98,7 +97,8 @@ function Calinfo() {
       <MDBox pt={6} pb={3}>
         <Grid container spacing={1}>
           {/* table */}
-          <Caltable />
+          <Caltable tan={tan} dan={dan} gi={gi} totalcal={totalcal} />
+          {/* <CalorieTableData tan={tan} dan={dan} gi={gi} /> */}
           {/* <Grid item xs={12}>
             <Card>
               <MDBox
@@ -143,7 +143,7 @@ function Calinfo() {
           </Grid> */}
           {/* pie chart */}
           <br />
-          <Piechart />
+          <Piechart tan={tan} dan={dan} gi={gi} />
           {/* <Grid item xs={12}>
             <Card>
               <MDBox
