@@ -28,44 +28,27 @@ import DataTable from 'examples/Tables/DataTable';
 
 // Data
 import calorieTableData from 'layouts/calinfo/data/calorieTableData';
-// import { date } from 'yup';
 
-// const tan = 0;
-// const dan = 0;
-// const gi = 0;
+// Componenet
+import Caltable from 'layouts/calinfo/component/caltable';
+import Piechart from 'layouts/calinfo/component/piechart';
+
+const tan = 0;
+const dan = 0;
+const gi = 0;
 // const { tan, dan, gi } = ingrident;
 const totalcal = 0;
 const date = '20220925';
-const url = '/diets/diet?date=' + date;
+const diet_course = 'KOREAN';
 
-const Setting = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: url,
-    })
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    // const fetchdata = async () => {
-    //   try {
-    //     const reponse = await axios.get(url);
-    //     setData(reponse.data.data);
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // };
-    // fetchdata();
-  }, []);
-};
-// const [data, setData] = useState(null);
-
-function Tables() {
+function Calinfo() {
   const { columns: pColumns, rows: pRows } = calorieTableData();
+  const [loading, setLoading] = useState(false);
+  const [diets, setDiets] = useState([]);
+  const [len, setLen] = useState(null);
+  const [totalcal, setTotlacal] = useState(null);
+  const [tempList, setTempList] = useState([]);
+  const [tempDate, setTempDate] = useState(null);
 
   // const date = '20220925';
   // const url = '/diets/diet?date=' + date;
@@ -73,13 +56,50 @@ function Tables() {
   // const res = await axios.get(url);
   // console.log(res.data);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+
+      try {
+        const res = '/diets/diet?date=' + date;
+        const response = await axios.get(res);
+        console.log(response.data);
+        setLen(response.data.length);
+        console.log(len);
+
+        // 코스에 따라 식단 결정
+        for (let i = 0; i < len; i++) {
+          if (response.data[i].course === diet_course) {
+            setDiets(response.data[i]);
+          }
+        }
+        console.log(diets);
+
+        setTempList(
+          response.data.sort((a, b) => (a.course > b.course ? 1 : -1))
+        );
+        console.log(tempList);
+        setTempDate(date);
+      } catch (e) {
+        console.log(e);
+      }
+
+      setLoading(false);
+    };
+    fetchData();
+  }, [date]);
+
+  // tan,dan,gi 계산
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <ShinsegaeNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={1}>
-          <Grid item xs={12}>
+          {/* table */}
+          <Caltable />
+          {/* <Grid item xs={12}>
             <Card>
               <MDBox
                 mx={2}
@@ -120,8 +140,11 @@ function Tables() {
                 />
               </MDBox>
             </Card>
-          </Grid>
-          <Grid item xs={12}>
+          </Grid> */}
+          {/* pie chart */}
+          <br />
+          <Piechart />
+          {/* <Grid item xs={12}>
             <Card>
               <MDBox
                 // mx={2}
@@ -161,9 +184,8 @@ function Tables() {
                 radius={40}
                 center={[50, 52]}
               />
-              ;
             </Card>
-          </Grid>
+          </Grid> */}
         </Grid>
       </MDBox>
       <Footer />
@@ -171,4 +193,4 @@ function Tables() {
   );
 }
 
-export default { Setting, Tables };
+export default Calinfo;

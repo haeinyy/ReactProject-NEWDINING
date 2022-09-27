@@ -74,12 +74,6 @@ export default function data() {
         align: 'center',
         width: '30%',
       },
-      // {
-      //   Header: 'completion',
-      //   accessor: 'completion',
-      //   align: 'center',
-      //   width: '30%',
-      // },
     ],
 
     rows: [
