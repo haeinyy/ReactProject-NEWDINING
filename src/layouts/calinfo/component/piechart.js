@@ -44,36 +44,14 @@ function Charts(props) {
             Pie Chart
           </MDTypography>
         </MDBox>
+        {/* <PieChart label={(labelRenderProps: LabelRenderProps) => null} /> */}
         <PieChart
           data={[
             { title: 'tan', value: props.tan, color: '#367E18' },
             { title: 'dan', value: props.dan, color: '#FFE9A0' },
             { title: 'gi', value: props.gi, color: '#CC3636' },
           ]}
-          // label={(labelRenderProps: LabelRenderProps) => null}
-          label={({ x, y, dx, dy, dataEntry }) => (
-            <text
-              x={x}
-              y={y}
-              dx={dx}
-              dy={dy}
-              dominantBaseline="central"
-              textAnchor="middle"
-              style={{
-                fill: '#fff',
-                pointerEvents: 'none',
-                fontSize: '3px',
-              }}
-            >
-              <tspan x={x} y={y} dx={dx} dy={dy}>
-                {dataEntry.title}
-              </tspan>
-              <tspan x={x} y={y + 5} dx={dx} dy={dy}>{`${Math.round(
-                dataEntry.percentage
-              )}%`}</tspan>
-            </text>
-          )}
-          // totalValue={100}
+          label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
           lineWidth={40}
           lengthAngle={360}
           rounded

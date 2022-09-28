@@ -47,11 +47,11 @@ function Calinfo() {
         const res = '/diets/diet?date=' + date;
         const response = await axios.get(res);
         console.log(response.data);
-        setLen(response.data.length);
-        console.log(len);
+        // setLen(response.data.length);
+        console.log(response.data.length);
 
         // 코스에 따라 식단 결정
-        for (let i = 0; i < len; i++) {
+        for (let i = 0; i < response.data.length; i++) {
           if (response.data[i].course === diet_course) {
             setDiets(response.data[i]);
           }
@@ -111,94 +111,8 @@ function Calinfo() {
               ]
             }
           />
-          {/* <CalorieTableData tan={tan} dan={dan} gi={gi} /> */}
-          {/* <Grid item xs={12}>
-            <Card>
-              <MDBox
-                mx={2}
-                mt={-3}
-                py={2}
-                px={2}
-                variant="gradient"
-                bgColor="error"
-                borderRadius="lg"
-                coloredShadow="info"
-              >
-                <MDTypography variant="h6" color="white" align="center">
-                  9월 22일 (목)
-                </MDTypography>
-              </MDBox>
-
-              <MDBox
-                // mx={2}
-                mt={3}
-                py={2}
-                px={2}
-                variant="gradient"
-                bgColor="info"
-                coloredShadow="light"
-              >
-                <MDTypography variant="h4" color="white" align="center">
-                  500kcal
-                </MDTypography>
-              </MDBox>
-
-              <MDBox pt={3}>
-                <DataTable
-                  table={{ columns: pColumns, rows: pRows }}
-                  isSorted={false}
-                  entriesPerPage={false}
-                  showTotalEntries={false}
-                  noEndBorder
-                />
-              </MDBox>
-            </Card>
-          </Grid> */}
-          {/* pie chart */}
           <br />
           <Piechart tan={total_tan} dan={total_dan} gi={total_gi} />
-          {/* <Grid item xs={12}>
-            <Card>
-              <MDBox
-                // mx={2}
-                mt={3}
-                py={2}
-                px={2}
-                variant="gradient"
-                bgColor="info"
-                coloredShadow="light"
-              >
-                <MDTypography variant="h4" color="white" align="center">
-                  Pie Chart
-                </MDTypography>
-              </MDBox>
-              <PieChart
-                data={[
-                  { title: 'tan', value: 100, color: '#367E18' },
-                  { title: 'dan', value: 250, color: '#FFE9A0' },
-                  // { title: 'gi', value: 400, color: '#A5D1D9' },
-                  { title: 'gi', value: 400, color: '#CC3636' },
-                ]}
-                // label={({ dataEntry }) => dataEntry.value + '%'}
-                label={({ dataEntry }) =>
-                  `${Math.round(dataEntry.percentage)} %`
-                }
-                // totalValue={100}
-                lineWidth={40}
-                lengthAngle={360}
-                rounded
-                animate
-                labelStyle={{
-                  fontSize: '7px',
-                  fill: '#33333',
-                }}
-                labelPosition={80}
-                // viewBoxSize={[150, 150]}
-                radius={40}
-                center={[50, 52]}
-              />
-            </Card>
-          </Grid> */}
         </Grid>
       </MDBox>
       <Footer />
