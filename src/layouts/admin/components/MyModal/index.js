@@ -8,15 +8,20 @@ const MyModal = ({isOpen, onSubmit, onCancel}) => {
   const handleClickCancel = () => {
     onCancel();
   };
+  const styleObj = {
+    height: "150px"
+  }
+  const styleObj2 = {
+    textAlign: "right"
+  }
 
   let [input, setinput] = useState();
 
   return (
-    <ReactModal isOpen={isOpen} input={input}>
+    <ReactModal isOpen={isOpen} input={input} style={styleObj}>
       <div>관리자 암호</div>
       <input onChange={ (e)=>{ setinput(e.target.value) } } />
-      입력 값 : { input }
-      <div>
+      <div style={styleObj2}>
       <button onClick={handleClickSubmit}>확인</button>
       <button onClick={handleClickCancel}>닫기</button>
       </div>

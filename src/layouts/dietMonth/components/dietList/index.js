@@ -81,7 +81,7 @@ function DietList(props) {
                 return <MDBox>
                   <DietItem key="7" tempDate={tempDate} course="KOREAN" mainMenu="식단 정보가 없습니다. :("/>
                   <DietItem key={index}
-                  tempDate={item.date}
+                  tempDate={tempDate}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
                   sub1={item.subMenus[0].name}
@@ -95,7 +95,7 @@ function DietList(props) {
               } else if (item.course === "KOREAN") {
                 return <MDBox>
                   <DietItem key={index}
-                  tempDate={item.date}
+                  tempDate={tempDate}
                   course={item.course}
                   mainMenu={item.mainMenu.name}
                   sub1={item.subMenus[0].name}
@@ -110,7 +110,7 @@ function DietList(props) {
               }
             } else if (tempList.length === 2) {
               return <DietItem key={index}
-                tempDate={item.date}
+                tempDate={tempDate}
                 course={item.course}
                 mainMenu={item.mainMenu.name}
                 sub1={item.subMenus[0].name}
@@ -121,6 +121,7 @@ function DietList(props) {
                 dessert={item.dessert.name}
                 />
             }
+            return <div></div>
 	        })}
         </MDBox>
       </MDBox>

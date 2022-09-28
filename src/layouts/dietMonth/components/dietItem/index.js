@@ -62,7 +62,7 @@ function DietItem({ tempDate, course, mainMenu, sub1, sub2, sub3, sub4, sub5, de
           flexDirection={{ xs: "column", sm: "row" }}
           mb={2}
         >
-          {tempDate}
+          {/* {tempDate} */}
           <MDTypography variant="button" fontWeight="medium" textTransform="capitalize">
             {course}
             <MDButton variant="text" color={darkMode ? "white" : "dark"} onClick={onClickEditButton}>
