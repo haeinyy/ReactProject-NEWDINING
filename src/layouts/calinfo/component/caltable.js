@@ -10,19 +10,12 @@ import Card from '@mui/material/Card';
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 import MDAvatar from 'components/MDAvatar';
-import MDProgress from 'components/MDProgress';
 
 // Material Dashboard 2 React example components
 import DataTable from 'examples/Tables/DataTable';
 
 // Images
 import LogoAsana from 'assets/images/small-logos/logo-asana.svg';
-import logoGithub from 'assets/images/small-logos/github.svg';
-import logoAtlassian from 'assets/images/small-logos/logo-atlassian.svg';
-import logoSlack from 'assets/images/small-logos/logo-slack.svg';
-import logoSpotify from 'assets/images/small-logos/logo-spotify.svg';
-import logoInvesion from 'assets/images/small-logos/logo-invision.svg';
-import { ConstructionRounded } from '@mui/icons-material';
 
 function Tables(props) {
   const Project = ({ image, name }) => (
