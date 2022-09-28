@@ -47,28 +47,23 @@ function Calinfo() {
         const res = '/diets/diet?date=' + date;
         const response = await axios.get(res);
         console.log(response.data);
-        // setLen(response.data.length);
-        console.log(response.data.length);
 
         // 코스에 따라 식단 결정
         for (let i = 0; i < response.data.length; i++) {
-          // console.log(response.data[i].course);
           if (response.data[i].course === diet_course) {
-            // console.log(response.data[i]);
             setDiets(response.data[i]);
+
+            // tan/dan/gi 합계
+            allcalarray.push(response.data[i].mainMenu.calorie);
+            allcalarray.push(response.data[i].dessert.calorie);
+
+            for (let j = 0; j < response.data[i].subMenus.length; j++) {
+              allcalarray.push(response.data[i].subMenus[j].calorie);
+            }
+
             break;
           }
         }
-        console.log(diets);
-
-        // tan/dan/gi 합계
-        allcalarray.push(diets.mainMenu.calorie);
-        allcalarray.push(diets.dessert.calorie);
-        for (let i = 0; i < diets.subMenus.length; i++) {
-          allcalarray.push(diets.subMenus[i].calorie);
-        }
-        console.log(allcalarray);
-
         for (let i = 0; i < allcalarray.length; i++) {
           total_tan += allcalarray[i].carbonate;
           total_dan += allcalarray[i].protein;

@@ -11,23 +11,7 @@ import Card from '@mui/material/Card';
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
-import MDAlert from 'components/MDAlert';
 import MDButton from 'components/MDButton';
-
-// type LabelRenderProps = {
-//   x: number,
-//   y: number,
-//   dx: number,
-//   dy: number,
-//   textAnchor: string,
-//   dataEntry: {
-//     startAngle: number,
-//     degrees: number,
-//     percentage: number,
-//   },
-//   dataIndex: number,
-//   style: React.CSSProperties,
-// };
 
 function Charts(props) {
   return (
