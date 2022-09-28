@@ -35,8 +35,9 @@ function Charts(props) {
           <MDBox
             sx={{
               display: 'flex',
-              mt: 2,
+              mt: 1,
               mr: 1,
+              ml: 1,
             }}
           >
             <MDButton color="success" variant="gradient" fullWidth>
