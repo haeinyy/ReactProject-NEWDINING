@@ -52,11 +52,15 @@ function Calinfo() {
 
         // 코스에 따라 식단 결정
         for (let i = 0; i < response.data.length; i++) {
+          // console.log(response.data[i].course);
           if (response.data[i].course === diet_course) {
+            // console.log(response.data[i]);
             setDiets(response.data[i]);
+            break;
           }
         }
         console.log(diets);
+
         // tan/dan/gi 합계
         allcalarray.push(diets.mainMenu.calorie);
         allcalarray.push(diets.dessert.calorie);

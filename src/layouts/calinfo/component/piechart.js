@@ -11,21 +11,23 @@ import Card from '@mui/material/Card';
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
+import MDAlert from 'components/MDAlert';
+import MDButton from 'components/MDButton';
 
-type LabelRenderProps = {
-  x: number,
-  y: number,
-  dx: number,
-  dy: number,
-  textAnchor: string,
-  dataEntry: {
-    startAngle: number,
-    degrees: number,
-    percentage: number,
-  },
-  dataIndex: number,
-  style: React.CSSProperties,
-};
+// type LabelRenderProps = {
+//   x: number,
+//   y: number,
+//   dx: number,
+//   dy: number,
+//   textAnchor: string,
+//   dataEntry: {
+//     startAngle: number,
+//     degrees: number,
+//     percentage: number,
+//   },
+//   dataIndex: number,
+//   style: React.CSSProperties,
+// };
 
 function Charts(props) {
   return (
@@ -44,7 +46,29 @@ function Charts(props) {
             Pie Chart
           </MDTypography>
         </MDBox>
-        {/* <PieChart label={(labelRenderProps: LabelRenderProps) => null} /> */}
+
+        <MDBox mt={3} lineHeight={1}>
+          <MDBox
+            sx={{
+              display: 'flex',
+              mt: 2,
+              mr: 1,
+            }}
+          >
+            <MDButton color="success" variant="gradient" fullWidth>
+              탄수화물
+            </MDButton>
+            <MDBox sx={{ mx: 1, width: '7rem', minWidth: '7rem' }}>
+              <MDButton color="warning" variant="gradient" fullWidth>
+                단백질
+              </MDButton>
+            </MDBox>
+            <MDButton color="error" variant="gradient" fullWidth>
+              지방
+            </MDButton>
+          </MDBox>
+        </MDBox>
+
         <PieChart
           data={[
             { title: 'tan', value: props.tan, color: '#367E18' },
