@@ -14,6 +14,9 @@ import MDTypography from 'components/MDTypography';
 import MDButton from 'components/MDButton';
 
 function Charts(props) {
+  console.log(
+    '넘어온 탄단지 = ' + props.tan + '/' + props.dan + '/' + props.gi
+  );
   return (
     <Grid item xs={12}>
       <Card>
@@ -30,7 +33,6 @@ function Charts(props) {
             Pie Chart
           </MDTypography>
         </MDBox>
-
         <MDBox mt={3} lineHeight={1}>
           <MDBox
             sx={{

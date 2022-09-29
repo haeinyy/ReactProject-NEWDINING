@@ -45,6 +45,7 @@ import Profile from 'layouts/profile';
 import CalorieInfomation from 'layouts/calinfo';
 import SignIn from 'layouts/authentication/sign-in';
 import SignUp from 'layouts/authentication/sign-up';
+import Haeintest from 'layouts/haeintest';
 
 // @mui icons
 import Icon from '@mui/material/Icon';
@@ -74,13 +75,21 @@ const routes = [
     route: '/billing',
     component: <Billing />,
   },
+  // {
+  //   type: 'collapse',
+  //   name: 'RTL',
+  //   key: 'rtl',
+  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+  //   route: '/rtl',
+  //   component: <RTL />,
+  // },
   {
     type: 'collapse',
-    name: 'RTL',
-    key: 'rtl',
+    name: 'haeintest',
+    key: 'haeintest',
     icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: '/rtl',
-    component: <RTL />,
+    route: '/haeintest',
+    component: <Haeintest />,
   },
   {
     type: 'collapse',
