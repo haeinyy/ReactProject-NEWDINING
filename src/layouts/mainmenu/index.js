@@ -15,33 +15,67 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import Grid from "@mui/material/Grid";
+import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import moment from "moment";
 
-
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import Footer from "examples/Footer";
+import MDTypography from "components/MDTypography";
 import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
+import Card from "@mui/material/Card";
+import DietInfoCard from "examples/Cards/InfoCards/DietInfoCard";
 
 // Data
-import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import Calendar from "layouts/mainmenu/components/Calendar"
 import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavBar";
+import Menu from './components/Menu';
 
-function Dashboard() {
-  const { sales, tasks } = reportsLineChartData;
+function MainMenu(props) {
+  const [clickDate, setClickDate] = useState(null);
+  const [value, onChange] = useState(new Date());
+//   const [diets, setDiets] = useState([]);
+//   const [len, setLen] = useState(null);
 
+//   useEffect(() => {
+//     const fetchData = async () => {
+//         const url = '/diets/diet?date=' + props.date;
+//         axios
+//         .get(url)
+//         .then((response) => {
+//             console.log(response.data);
+//             setDiets(response.data);
+//             setLen(response.data.length);
+//         });
+//     };
+// fetchData();
+// }, [props.date]);
+  
   return (
     <div>
       <ShinsegaeNavbar />
-      <MDBox py={3}>
-            <Calendar></Calendar>
+      <MDBox py={2}>
+        <Calendar setData={setClickDate}></Calendar>
+      </MDBox>
+      <MDBox py={1.5}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6} xl={3}>
+            <MDBox MDBox ml={3} mr={3} mb={1.5} pt={1}>
+              <Menu
+                // date={ moment(value).format("YYYYMMDD") }
+                date={ clickDate===null?moment(value).format("YYYYMMDD"):clickDate }
+              />
+            </MDBox>
+          </Grid>
+          
+        </Grid>
+
       </MDBox>
       <Footer />
     </div>
   );
 }
 
-export default Dashboard;
+export default MainMenu;

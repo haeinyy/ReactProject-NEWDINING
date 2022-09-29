@@ -1,0 +1,42 @@
+.cal_today {
+  color: #D70C19;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid red;
+  border-radius: 25px; 
+}
+.cal_date{
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 0.8em;
+}
+.cal_day{
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.cal_notToday {
+  text-align: center;
+}
+
+.test {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 40px;
+}
+
+.clicked{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #D70C19;
+    border-radius: 25px;
+}
+
+.aaa{
+    font-weight: bold;
+}
