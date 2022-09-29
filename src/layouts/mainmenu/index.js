@@ -23,39 +23,35 @@ import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
 import Footer from "examples/Footer";
-import MDTypography from "components/MDTypography";
-import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
-import Card from "@mui/material/Card";
-import DietInfoCard from "examples/Cards/InfoCards/DietInfoCard";
+import MDButton from "components/MDButton";
 
 // Data
 import Calendar from "layouts/mainmenu/components/Calendar"
-import ShinsegaeNavbar from "examples/Navbars/ShinsegaeNavBar";
+import ShinsegaeNavBar from "examples/Navbars/ShinsegaeNavBar";
 import Menu from './components/Menu';
+import { useNavigate } from 'react-router-dom';
 
 function MainMenu(props) {
   const [clickDate, setClickDate] = useState(null);
   const [value, onChange] = useState(new Date());
-//   const [diets, setDiets] = useState([]);
-//   const [len, setLen] = useState(null);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//         const url = '/diets/diet?date=' + props.date;
-//         axios
-//         .get(url)
-//         .then((response) => {
-//             console.log(response.data);
-//             setDiets(response.data);
-//             setLen(response.data.length);
-//         });
-//     };
-// fetchData();
-// }, [props.date]);
+  const adminButton = {
+    // display: "flex",
+    // justifyContent: "flex-end",
+    float: "right",
+  };
+
+  const navigate = useNavigate();
+
+  const onClickEditButton = () => {
+    // 내 페이지전달해야함
+    navigate('/dietMonth', {
+    });
+  };
   
   return (
     <div>
-      <ShinsegaeNavbar />
+      <ShinsegaeNavBar />
       <MDBox py={2}>
         <Calendar setData={setClickDate}></Calendar>
       </MDBox>
@@ -71,7 +67,7 @@ function MainMenu(props) {
           </Grid>
           
         </Grid>
-
+        <MDButton style={adminButton} color="error" onClick={onClickEditButton}>관리자</MDButton>
       </MDBox>
       <Footer />
     </div>
